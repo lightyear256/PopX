@@ -13,7 +13,7 @@ export default function Account() {
         <div className="flex flex-col justify-start items-start gap-y-4 ">
         <div className="flex items-center gap-x-4 p-4 ">
             <img 
-              src="../../public/profile-image.webp" 
+              src="/profile-image.webp" 
               alt="Profile" 
               className="w-16 h-16 rounded-full object-cover border-2 border-gray-300"
             />
