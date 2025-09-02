@@ -4,7 +4,7 @@ interface ButtonProps {
     variant: ButtonVariant;
     size:"lg"|"xl";
     title:string,
-    onClickFunction: () => void;
+    onClickFunction?: (e: React.MouseEvent<HTMLButtonElement>) => void;
     isDisabled:boolean
 }
 export default function Button(props:ButtonProps){

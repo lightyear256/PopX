@@ -20,7 +20,8 @@ export default function Signup() {
     selectValue: ""
   });
   const navigate=useNavigate();
-  const handleSubmit = () => {
+  const handleSubmit = (e: React.FormEvent) => {
+  e.preventDefault();
   if (
     !formData.name.trim() ||
     !formData.phone.trim() ||

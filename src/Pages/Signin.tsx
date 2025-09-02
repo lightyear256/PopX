@@ -8,22 +8,21 @@ interface FormData {
   password: string;
 }
 export default function Signin() {
-    const navigate=useNavigate();
-    const [formData,setFormData]=useState<FormData>({
-        email: "",
-        password: "",
-      });
-      const handleSubmit = () => {
-  if (
-    !formData.email.trim() ||
-    !formData.password.trim()
-  ) {
-    return;
-  }
+  const navigate = useNavigate();
+  const [formData, setFormData] = useState<FormData>({
+    email: "",
+    password: "",
+  });
+  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    if (!formData.email.trim() || !formData.password.trim()) {
+      return;
+    }
 
-  navigate("/user");
-};
- const isFormValid = formData.email.trim() !== "" && formData.password.trim() !== "";
+    navigate("/user");
+  };
+  const isFormValid =
+    formData.email.trim() !== "" && formData.password.trim() !== "";
   return (
     <div className="w-screen h-screen flex justify-center items-center font-dmsans">
       <Container className={"justify-start items-start"}>
@@ -41,7 +40,9 @@ export default function Signin() {
               type="email"
               placeholder="Enter your Email Address"
               value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              onChange={(e) =>
+                setFormData({ ...formData, email: e.target.value })
+              }
             />
             <InputBox
               title="Password"
@@ -49,11 +50,17 @@ export default function Signin() {
               type="password"
               placeholder="Enter your Password"
               value={formData.password}
-              onChange={(e) => {setFormData({ ...formData, password: e.target.value })
-
-            }}
+              onChange={(e) => {
+                setFormData({ ...formData, password: e.target.value });
+              }}
             />
-          <Button variant="primary" title="Login" size="lg" onClickFunction={handleSubmit} isDisabled={!isFormValid}/>
+            <Button
+              variant="primary"
+              title="Login"
+              size="lg"
+              onClickFunction={handleSubmit}
+              isDisabled={!isFormValid}
+            />
           </form>
         </div>
       </Container>
